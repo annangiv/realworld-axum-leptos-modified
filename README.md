@@ -63,5 +63,10 @@ The deployment has been done thanks to the free tier of:
 - https://www.elephantsql.com/ for the database
 
 
-# Attempting to change the username primary key to uuid and make some improvements. 
+# Revisions from original 
 - This is Work in Progress 
+- Attempting to change primary keys to UUid - DONE
+- Making some improvements along the way - TODO
+- Adding email confirmation # TODO
+- Adding image upload # TODO
+- Adding caching to improve performance - TODO
