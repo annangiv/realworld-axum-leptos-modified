@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:16.1
+    container_name: postgres-container
+    command: ["postgres", "-c", "wal_level=logical"]
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: vas34sjkaf52cf4t
+      POSTGRES_DB: thedeveloper_leptos_prod
+    volumes:
+      - /var/lib/postgresql/docker-data:/var/lib/postgresql/thedeveloper_leptos_prod
+    ports:
+      - "5433:5432"
+    networks:
+      - pg-network
+    restart: unless-stopped
+
+  readyset:
+    image: readysettech/readyset:latest
+    container_name: readyset-container
+    command: --address 0.0.0.0:5432 --database-type postgresql
+    ports:
+      - "5434:5432"
+    networks:
+      - pg-network
+    restart: unless-stopped
+    environment:
+      UPSTREAM_DB_URL: postgresql://postgres:vas34sjkaf52cf4t@postgres:5432/thedeveloper_leptos_prod
+    depends_on:
+      - postgres
+
+networks:
+  pg-network:
+    driver: bridge
