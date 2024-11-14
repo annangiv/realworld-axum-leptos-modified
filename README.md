@@ -61,3 +61,7 @@ And navigate to http://localhost:8080/
 The deployment has been done thanks to the free tier of:
 - https://render.io/ for the fullstack application
 - https://www.elephantsql.com/ for the database
+
+
+# Attempting to change the username primary key to uuid and make some improvements. 
+- This is Work in Progress 
